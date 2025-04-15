@@ -1,0 +1,12 @@
+# 使用编辑器或以下命令修复.gitignore文件
+echo "# 忽略所有CSV文件
+*.csv
+
+# 忽略数据目录
+/data_binance/
+/logs/
+
+# 其他大文件或敏感数据
+*.db
+*.zip
+.DS_Store" > .gitignore
