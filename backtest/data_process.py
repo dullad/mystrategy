@@ -5,7 +5,7 @@ import random
 from typing import List, Dict, Tuple, Optional
 
 from configs.ArbConfig import ArbConfig
-from tri_arb import calculate_arb_paths
+from backtest.tri_arb import calculate_arb_paths
 
 def analyze_liquidity(config: ArbConfig) -> List[str]:
     """分析指定目录下所有交易对的流动性，返回流动性最好的前X%交易对"""

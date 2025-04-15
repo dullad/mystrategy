@@ -1,10 +1,7 @@
 import os
 import sys
 import logging
-import argparse
 import datetime
-from pathlib import Path
-from typing import List, Optional
 
 # 设置日志
 log_dir = './logs'
@@ -25,7 +22,7 @@ logging.basicConfig(
 
 # 导入配置和回测模块
 from configs.ArbConfig import ArbConfig
-from backtest import run_backtest
+from backtest.backtest import run_backtest
 
 def display_config_summary(config: ArbConfig):
     """显示配置摘要"""
