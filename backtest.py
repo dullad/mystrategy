@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 from typing import List, Optional, Dict, Any
 import traceback
 
-from backtest.DataManager import DataManager
-from backtest.tri_arb import TriangularArbStrategy, calculate_arb_paths
+from DataManager import DataManager
+from tri_arb import TriangularArbStrategy, calculate_arb_paths
 
 # 创建结果目录
 RESULTS_DIR = './results'

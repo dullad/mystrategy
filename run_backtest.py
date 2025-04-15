@@ -22,7 +22,7 @@ logging.basicConfig(
 
 # 导入配置和回测模块
 from configs.ArbConfig import ArbConfig
-from backtest.backtest import run_backtest
+from backtest import run_backtest
 
 def display_config_summary(config: ArbConfig):
     """显示配置摘要"""
