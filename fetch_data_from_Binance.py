@@ -303,20 +303,17 @@ def batch_download_symbols(symbols, interval='1m', start_date=None, end_date=Non
 
 ###使用示例###
 if __name__ == "__main__":
+    from configs.ArbConfig import ArbConfig
+    config = ArbConfig()
+
     # 定义需要下载的交易对（带下划线格式）
-    symbols = ['BTC_USDT', 'ETH_USDT', 'BNB_USDT']
-    
-    # 设置参数
-    interval = '1s'  # 使用分钟级数据可获得完整天数据
-    start_date = '2025-04-06' 
-    end_date = '2025-04-06'
-    base_dir='./data_binance'
+    symbols = [pair for pair in config.selected_pairs]
     
     # 调用批量下载函数
     success, failed, data_dir = batch_download_symbols(
         symbols=symbols,
-        interval=interval,
-        start_date=start_date,
-        end_date=end_date,
-        base_dir=base_dir  # 基础数据目录
+        interval=config.interval,
+        start_date=config.start_date,
+        end_date=config.end_date,
+        base_dir=config.data_dir  # 基础数据目录
     )
