@@ -68,8 +68,6 @@ def download_kline_data(symbol, interval='1s', start_date=None, end_date=None, o
         date_list.append(current_date)
         current_date = current_date + timedelta(days=1)
     
-    logger.info(f"需要下载的日期: {', '.join([d.strftime('%Y-%m-%d') for d in date_list])}")
-    
     # 下载每天的数据
     for date in tqdm(date_list, desc=f"下载 {symbol} {interval} 数据"):
         df = download_daily_data(binance_symbol, interval, date, temp_dir)  # 使用转换后的symbol
@@ -113,9 +111,9 @@ def download_kline_data(symbol, interval='1s', start_date=None, end_date=None, o
     
     merged_df.to_csv(output_file, index=False)
     
-    logger.info(f"数据处理完成: {output_file}")
-    logger.info(f"数据范围: {merged_df['datetime_utc'].min()} 至 {merged_df['datetime_utc'].max()}")
-    logger.info(f"数据条数: {len(merged_df)}")
+    # logger.info(f"数据处理完成: {output_file}")
+    # logger.info(f"数据范围: {merged_df['datetime_utc'].min()} 至 {merged_df['datetime_utc'].max()}")
+    # logger.info(f"数据条数: {len(merged_df)}")
     
     # 清理临时目录
     if os.path.exists(temp_dir):
@@ -217,7 +215,6 @@ def batch_download_symbols(symbols, interval='1m', start_date=None, end_date=Non
     os.makedirs(dir_name, exist_ok=True)
     
     logger.info(f"开始批量下载 {len(symbols)} 个交易对的数据...")
-    print(f"开始批量下载 {len(symbols)} 个交易对的数据...")
     
     # 存储成功和失败的交易对
     success_symbols = []
