@@ -219,6 +219,7 @@ def batch_download_symbols(symbols, interval='1m', start_date=None, end_date=Non
     # 存储成功和失败的交易对
     success_symbols = []
     failed_symbols = []
+    skipped_symbols = []
     
     # 创建临时下载目录
     temp_dir = os.path.join(base_dir, 'temp_download')
@@ -229,6 +230,13 @@ def batch_download_symbols(symbols, interval='1m', start_date=None, end_date=Non
         try:
             # 设置输出文件路径，文件名保留原始格式（带下划线）
             output_file = os.path.join(dir_name, f"{symbol}.csv")
+            
+            if os.path.exists(output_file):
+                # 如果文件已存在，跳过下载
+                skipped_symbols.append(symbol)
+                success_symbols.append(symbol)
+                logger.info(f"{symbol} 数据已存在，跳过下载")
+                continue
             
             # 调用下载函数，但需要自定义输出文件
             temp_file = download_kline_data(
