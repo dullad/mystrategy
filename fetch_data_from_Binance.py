@@ -309,11 +309,32 @@ if __name__ == "__main__":
     # 定义需要下载的交易对（带下划线格式）
     symbols = [pair for pair in config.selected_pairs]
     
-    # 调用批量下载函数
-    success, failed, data_dir = batch_download_symbols(
-        symbols=symbols,
-        interval=config.interval,
-        start_date=config.start_date,
-        end_date=config.end_date,
-        base_dir=config.data_dir  # 基础数据目录
-    )
+    # 从配置中获取批量日期并下载
+    if hasattr(config, 'batch_test_dates') and config.batch_test_dates:
+        print(f"发现{len(config.batch_test_dates)}个日期范围需要下载...")
+        
+        for start_date, end_date in config.batch_test_dates:
+            print(f"\n===== 下载 {start_date} 至 {end_date} 的数据 =====")
+            
+            success, failed, data_dir = batch_download_symbols(
+                symbols=symbols,
+                interval=config.interval,
+                start_date=start_date,
+                end_date=end_date,
+                base_dir=config.data_dir,
+                output_subdir=f"{config.interval}_{start_date.replace('-', '')}_{end_date.replace('-', '')}"
+            )
+            
+            if success:
+                print(f"✅ {start_date}至{end_date}数据下载成功: {len(success)}/{len(symbols)}个交易对")
+            else:
+                print(f"❌ {start_date}至{end_date}数据下载失败!")
+    else:
+        # 单一日期下载逻辑(保留原代码)
+        success, failed, data_dir = batch_download_symbols(
+            symbols=symbols,
+            interval=config.interval,
+            start_date=config.start_date,
+            end_date=config.end_date,
+            base_dir=config.data_dir
+        )

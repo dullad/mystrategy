@@ -5,6 +5,8 @@ echo "# 忽略所有CSV文件
 # 忽略数据目录
 /data_binance/
 /logs/
+/plots/
+/results/
 
 # 其他大文件或敏感数据
 *.db

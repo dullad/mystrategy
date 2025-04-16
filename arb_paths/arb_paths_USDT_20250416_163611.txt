@@ -1,0 +1,31 @@
+# 三角套利路径 - 基础货币: USDT
+# 生成时间: 2025-04-16 16:36:11
+# 路径数量: 20
+# 计算耗时: 1.01毫秒
+
+路径1: BTC_USDT(-) → ETH_BTC(-) → ETH_USDT(+)
+路径2: BTC_USDT(-) → SOL_BTC(-) → SOL_USDT(+)
+路径3: BTC_USDT(-) → XRP_BTC(-) → XRP_USDT(+)
+路径4: BTC_USDT(-) → DOGE_BTC(-) → DOGE_USDT(+)
+路径5: BTC_USDT(-) → DOT_BTC(-) → DOT_USDT(+)
+路径6: BTC_USDT(-) → BTC_USDC(+) → USDC_USDT(+)
+路径7: BTC_USDT(-) → AVAX_BTC(-) → AVAX_USDT(+)
+路径8: ETH_USDT(-) → ETH_BTC(+) → BTC_USDT(+)
+路径9: ETH_USDT(-) → BNB_ETH(-) → BNB_USDT(+)
+路径10: ETH_USDT(-) → LINK_ETH(-) → LINK_USDT(+)
+路径11: SOL_USDT(-) → SOL_BTC(+) → BTC_USDT(+)
+路径12: BNB_USDT(-) → BNB_ETH(+) → ETH_USDT(+)
+路径13: BNB_USDT(-) → ADA_BNB(-) → ADA_USDT(+)
+路径14: XRP_USDT(-) → XRP_BTC(+) → BTC_USDT(+)
+路径15: LINK_USDT(-) → LINK_ETH(+) → ETH_USDT(+)
+路径16: DOGE_USDT(-) → DOGE_BTC(+) → BTC_USDT(+)
+路径17: DOT_USDT(-) → DOT_BTC(+) → BTC_USDT(+)
+路径18: USDC_USDT(-) → BTC_USDC(-) → BTC_USDT(+)
+路径19: ADA_USDT(-) → ADA_BNB(+) → BNB_USDT(+)
+路径20: AVAX_USDT(-) → AVAX_BTC(+) → BTC_USDT(+)
+
+# 所需交易对列表
+"DOGE_BTC", "AVAX_USDT", "BTC_USDT", "ETH_BTC", "BNB_USDT", "BNB_ETH", "SOL_BTC", "DOT_BTC", "XRP_USDT", "LINK_ETH", "ADA_BNB", "BTC_USDC", "ADA_USDT", "SOL_USDT", "ETH_USDT", "AVAX_BTC", "DOGE_USDT", "LINK_USDT", "USDC_USDT", "DOT_USDT", "XRP_BTC"
+
+# JSON格式路径数据 (用于程序读取)
+[[["BTC_USDT", -1], ["ETH_BTC", -1], ["ETH_USDT", 1]], [["BTC_USDT", -1], ["SOL_BTC", -1], ["SOL_USDT", 1]], [["BTC_USDT", -1], ["XRP_BTC", -1], ["XRP_USDT", 1]], [["BTC_USDT", -1], ["DOGE_BTC", -1], ["DOGE_USDT", 1]], [["BTC_USDT", -1], ["DOT_BTC", -1], ["DOT_USDT", 1]], [["BTC_USDT", -1], ["BTC_USDC", 1], ["USDC_USDT", 1]], [["BTC_USDT", -1], ["AVAX_BTC", -1], ["AVAX_USDT", 1]], [["ETH_USDT", -1], ["ETH_BTC", 1], ["BTC_USDT", 1]], [["ETH_USDT", -1], ["BNB_ETH", -1], ["BNB_USDT", 1]], [["ETH_USDT", -1], ["LINK_ETH", -1], ["LINK_USDT", 1]], [["SOL_USDT", -1], ["SOL_BTC", 1], ["BTC_USDT", 1]], [["BNB_USDT", -1], ["BNB_ETH", 1], ["ETH_USDT", 1]], [["BNB_USDT", -1], ["ADA_BNB", -1], ["ADA_USDT", 1]], [["XRP_USDT", -1], ["XRP_BTC", 1], ["BTC_USDT", 1]], [["LINK_USDT", -1], ["LINK_ETH", 1], ["ETH_USDT", 1]], [["DOGE_USDT", -1], ["DOGE_BTC", 1], ["BTC_USDT", 1]], [["DOT_USDT", -1], ["DOT_BTC", 1], ["BTC_USDT", 1]], [["USDC_USDT", -1], ["BTC_USDC", -1], ["BTC_USDT", 1]], [["ADA_USDT", -1], ["ADA_BNB", 1], ["BNB_USDT", 1]], [["AVAX_USDT", -1], ["AVAX_BTC", 1], ["BTC_USDT", 1]]]

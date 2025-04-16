@@ -2,27 +2,12 @@ import os
 import sys
 import logging
 import datetime
-
-# 设置日志
-log_dir = './logs'
-if not os.path.exists(log_dir):
-    os.makedirs(log_dir)
-
-timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-log_file = f'{log_dir}/backtest_{timestamp}.log'
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
-    handlers=[
-        logging.FileHandler(log_file, encoding='utf-8'),
-        logging.StreamHandler()
-    ]
-)
+from utils import setup_logging  # 导入工具函数
 
 # 导入配置和回测模块
 from configs.ArbConfig import ArbConfig
 from backtest import run_backtest
+
 
 def display_config_summary(config: ArbConfig):
     """显示配置摘要"""
@@ -50,13 +35,12 @@ def display_config_summary(config: ArbConfig):
 
 def main():
     config = ArbConfig()
+
+    date_str = config.start_date.replace('-', '')
+    log_file = setup_logging(date_str)
+    print(f"日志记录到: {log_file}")
+
     display_config_summary(config)
-    # 询问用户是否继续
-    if sys.stdout.isatty():  # 如果是交互式终端
-        user_input = input("确认开始回测? (y/n): ")
-        if user_input.lower() not in ['y', 'yes']:
-            print("已取消回测。")
-            return
     
     logging.info("开始执行回测...")
     start_time = datetime.datetime.now()
@@ -84,5 +68,4 @@ def main():
         print("\n回测执行失败，请查看日志了解详情。")
 
 if __name__ == "__main__":
-    print(f"日志记录到: {log_file}")
     main()
