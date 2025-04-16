@@ -7,6 +7,12 @@ echo "# 忽略所有CSV文件
 /logs/
 /plots/
 /results/
+/trades/
+
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
 
 # 其他大文件或敏感数据
 *.db
