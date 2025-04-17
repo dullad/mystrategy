@@ -7,6 +7,26 @@ from configs.ArbConfig import ArbConfig
 from backtest import run_backtest
 from utils import setup_logging  # 导入工具函数
 
+def limit_memory(max_mem_gb=6):
+    """限制程序最大内存使用"""
+    max_mem_bytes = max_mem_gb * 1024 * 1024 * 1024  # 转换为字节
+    
+    # 根据操作系统选择不同的内存限制方法
+    if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
+        try:
+            import resource
+            # 设置软限制和硬限制
+            resource.setrlimit(resource.RLIMIT_AS, (max_mem_bytes, max_mem_bytes))
+            print(f"内存使用已限制为最大 {max_mem_gb}GB (Linux/macOS)")
+        except ImportError:
+            print("无法导入resource模块")
+        except Exception as e:
+            print(f"无法设置内存限制: {e}")
+    
+    print("请注意手动监控程序内存使用")
+    
+limit_memory(6)  # 限制为6GB
+
 def run_backtest_for_date(start_date, end_date):
     """针对特定日期范围回测"""
     config = ArbConfig()

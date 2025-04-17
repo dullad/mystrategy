@@ -8,7 +8,6 @@ from utils import setup_logging  # 导入工具函数
 from configs.ArbConfig import ArbConfig
 from backtest import run_backtest
 
-
 def display_config_summary(config: ArbConfig):
     """显示配置摘要"""
     print("\n===== 回测配置摘要 =====")
@@ -66,6 +65,11 @@ def main():
         print("=========================\n")
     else:
         print("\n回测执行失败，请查看日志了解详情。")
+    
+    del strategy
+    del backtest
+    import gc
+    gc.collect()
 
 if __name__ == "__main__":
     main()

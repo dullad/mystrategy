@@ -9,7 +9,7 @@ class ArbConfig:
     # 基础配置
     base_currency: str = 'USDT'          # 基础货币
     initial_cash: float = 1000            # 初始资金
-    threshold: float = 0.001             # 套利阈值
+    threshold: float = 0.005             # 套利阈值
     
     # 数据配置
     interval: str = '1s'                # 数据时间间隔
